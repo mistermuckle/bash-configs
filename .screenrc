@@ -1,0 +1,6 @@
+startup_message off
+shelltitle '$ |bash'
+hardstatus alwayslastline
+hardstatus string '%{K}%-w%{k}[%n %t]%{K}%+w%=%c:%s %a'
+vbell on
+vbell_msg '* Quack! *'
