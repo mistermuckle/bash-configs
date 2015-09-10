@@ -17,3 +17,4 @@ au BufRead,BufNewFile *.css.twig set filetype=css
 au BufRead,BufNewFile *.less set filetype=css
 au BufRead,BufNewFile *.js.twig set filetype=js
 au BufRead,BufNewFile *.php.twig set filetype=php
+au BufRead,BufNewFile Vagrantfile set filetype=ruby
