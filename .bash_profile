@@ -1,4 +1,4 @@
-THIS_DIR=$(dirname $(readlink -e $HOME/.bash_profile))
+THIS_DIR=$(dirname $HOME/$(readlink $HOME/.bash_profile))
 
 export PROMPT_COMMAND='echo "k\\"' # screen title reset
 export EDITOR=/usr/bin/vim
