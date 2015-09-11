@@ -18,3 +18,7 @@ au BufRead,BufNewFile *.less set filetype=css
 au BufRead,BufNewFile *.js.twig set filetype=js
 au BufRead,BufNewFile *.php.twig set filetype=php
 au BufRead,BufNewFile Vagrantfile set filetype=ruby
+
+if strlen(findfile('.vimrc.local', $HOME)) > 0
+    source $HOME/.vimrc.local
+endif

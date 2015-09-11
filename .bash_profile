@@ -1,15 +1,18 @@
-THIS_DIR=$(dirname $HOME/$(readlink $HOME/.bash_profile))
-
 export PROMPT_COMMAND='echo "k\\"' # screen title reset
 export EDITOR=/usr/bin/vim
 export LESS="$LESS -R"
 
 # Set up colors for filetypes, if we can.
 if type dircolors > /dev/null 2>&1; then
-    . <(dircolors $THIS_DIR/.dircolors)
-    alias ls='ls -p --color=auto';
-else
-    alias ls='ls -p';
+    . <(dircolors $(bin/getconfigpath)/.dircolors)
+    alias ls='ls -p --color=auto'
+elif [[ $(uname) == 'Darwin' ]]; then # We're on OS-X
+    export LSCOLORS=xx # Set directory color to normal fore/background
+    alias ls='ls -pG'
 fi
 
 alias vi=vim
+
+if [[ -f $HOME/.bash_profile.local ]]; then
+    . $HOME/.bash_profile.local
+fi
