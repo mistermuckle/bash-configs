@@ -1,6 +1,6 @@
 DIR 00
 EXEC 01
-LINK 'target'
+LINK target
 .php 34
 .js 33
 .css 31

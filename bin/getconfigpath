@@ -1,3 +1,9 @@
 #! /bin/sh
 
-echo $(dirname $HOME/$(readlink $HOME/.bash_profile))
+if [[ -d $HOME/bash-configs ]]; then
+    echo $HOME/bash-configs
+elif [[ -h $HOME/.bash_profile ]]; then
+    dirname $HOME/$(readlink $HOME/.bash_profile)
+else
+    exit 1
+fi

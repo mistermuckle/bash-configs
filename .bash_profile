@@ -4,7 +4,7 @@ export LESS="$LESS -R"
 
 # Set up colors for filetypes, if we can.
 if type dircolors > /dev/null 2>&1; then
-    . <(dircolors $(bin/getconfigpath)/.dircolors)
+    . <(dircolors $HOME/.dircolors)
     alias ls='ls -p --color=auto'
 elif [[ $(uname) == 'Darwin' ]]; then # We're on OS-X
     export LSCOLORS=xx # Set directory color to normal fore/background
@@ -13,6 +13,6 @@ fi
 
 alias vi=vim
 
-if [[ -f $HOME/.bash_profile.local ]]; then
+if [[ -a $HOME/.bash_profile.local ]]; then
     . $HOME/.bash_profile.local
 fi
