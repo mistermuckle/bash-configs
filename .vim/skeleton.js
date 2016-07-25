@@ -2,7 +2,7 @@
 (function (root, factory) {
     'use strict';
 
-    var nsManager = new Perimeter.NamespaceManager,
+    var nsManager = new root.Perimeter.NamespaceManager(),
         <namespace> = nsManager.getNamespace('<namespace>');
 
     if (typeof define === 'function' && define.amd) {
@@ -11,4 +11,5 @@
         <namespace>.<constructor> = factory(root.<dependency>);
     }
 }(this, function (<dependency>) {
+    'use strict';
 }));

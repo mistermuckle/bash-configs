@@ -16,3 +16,6 @@ alias vi=vim
 if [[ -a $HOME/.bash_profile.local ]]; then
     . $HOME/.bash_profile.local
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
