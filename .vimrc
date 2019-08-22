@@ -11,6 +11,8 @@ if strlen(finddir('~/.vim/bundle/Vundle.vim')) > 0
     " let Vundle manage Vundle, required
     Plugin 'VundleVim/Vundle.vim'
     Plugin 'rizzatti/dash.vim'
+    Plugin 'pangloss/vim-javascript'
+    Plugin 'mxw/vim-jsx'
 
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
@@ -31,23 +33,17 @@ endif
 syntax on
 set number
 set ai
-set shiftwidth=4
+set shiftwidth=2
 set expandtab
 set nohlsearch
 set shell=bash\ --login
 set foldmethod=syntax
 set foldlevelstart=99
-colorscheme elflord
-au BufRead,BufNewFile *.html.twig set filetype=html
-au BufRead,BufNewFile *.css.twig set filetype=css
-au BufRead,BufNewFile *.less set filetype=css
-au BufRead,BufNewFile *.js.twig set filetype=js
-au BufRead,BufNewFile *.php.twig set filetype=php
-au BufRead,BufNewFile Vagrantfile set filetype=ruby
+colorscheme pablo
 
-au BufNewFile *.php silent 0r ~/.vim/skeleton.php
-au BufNewFile *.js silent 0r ~/.vim/skeleton.js
+au BufNewFile *.jsx silent 0read ~/.vim/skeleton.jsx
+au BufNewFile *.jsx execute '%s/XXX/' . substitute(bufname('%'), '^\(.*\/\)*\(.*\)\.jsx$', '\2', '') . '/g'
+au BufNewFile *.jsx normal gg
 
-if strlen(findfile('.vimrc.local', $HOME)) > 0
-    source $HOME/.vimrc.local
-endif
+" Append the JIRA ticket # to the end of the line
+imap jjira <ESC>:read !jiranum<ESC>^i(<ESC>$a)<ESC>kJ
