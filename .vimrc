@@ -41,7 +41,14 @@ set foldmethod=syntax
 set foldlevelstart=99
 colorscheme pablo
 
+au BufNewFile *.test.jsx au! BufNewFile *.jsx
+au BufNewFile *.test.jsx silent 0read ~/.vim/skeleton.test.jsx
+au BufNewFile *.test.jsx normal Gdd
+au BufNewFile *.test.jsx execute '%s/XXX/' . substitute(bufname('%'), '^\(.*\/\)*\(.*\)\.test\.jsx$', '\2', '') . '/g'
+au BufNewFile *.test.jsx normal gg
+
 au BufNewFile *.jsx silent 0read ~/.vim/skeleton.jsx
+au BufNewFile *.jsx normal Gdd
 au BufNewFile *.jsx execute '%s/XXX/' . substitute(bufname('%'), '^\(.*\/\)*\(.*\)\.jsx$', '\2', '') . '/g'
 au BufNewFile *.jsx normal gg
 
