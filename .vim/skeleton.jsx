@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class XXX extends React.Component {
   constructor(props) {
-    super props();
+    super(props);
 
     this.state = {
     };
@@ -26,3 +26,5 @@ XXX.propTypes = {
 
 XXX.defaultProps = {
 };
+
+export default XXX;
